@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +14,7 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
 {
     public partial class Admin : System.Web.UI.Page
     {
+        string strcon = ConfigurationManager.ConnectionStrings["DBCONNECT"].ConnectionString;
         ControlleureEtudiant conetu = new ControlleureEtudiant();
         ControlleureUser conuser = new ControlleureUser();
         ControlleurCours controcours = new ControlleurCours();
@@ -85,17 +89,18 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
         public void ListeDropdown()
         {
 
-            cmdfaculter.DataSource = controfacul.GetListerFaculte();
-            cmdfaculter.DataBind();
-            cmdfaculter.DataTextField = "nomfaculte";
-            cmdfaculter.DataValueField = "idfaculte";
-            cmdfaculter.DataBind();
 
             cmdoption.DataSource = controfacul.GetListerFaculte();
             cmdoption.DataBind();
             cmdoption.DataTextField = "nomfaculte";
             cmdoption.DataValueField = "idfaculte";
             cmdoption.DataBind();
+
+            cmdfaculter.DataSource = controfacul.GetListerFaculte();
+            cmdfaculter.DataBind();
+            cmdfaculter.DataTextField = "nomfaculte";
+            cmdfaculter.DataValueField = "idfaculte";
+            cmdfaculter.DataBind();
 
 
             cmdanneeaca.DataSource = conetu.GetListeAnneeaccademique();
@@ -125,7 +130,6 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
             cmbcours.DataBind();
 
 
-
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -135,10 +139,14 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
             }
 
 
+                     
+
+
             // Response.Redirect("Loginadmin.aspx");
-            ListeDropdown();
-            
+            //ListeDropdown();
+
         }
+        
 
         public void videretudiant()
         {
@@ -160,6 +168,7 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
             {
                 string codeetudiant = conetu.Creercodeetudiant(tnometu.Text, tprenom.Text);
                 string passetu = conetu.Creerpwdetudiant();
+                
                 conetu.CreerEtudiant(codeetudiant, tnometu.Text, tprenom.Text, cmbsexe.Text, tdatenaiss.Text, tlieunaissance.Text, tadresse.Text, tnationalite.Text, cmbcrps.Text, temail.Text, tphone.Text, cmdanneeaca.SelectedValue, tdescription.Text, profil.Text, currentdate, passetu, cmdanneeaca.SelectedValue, cmbniveau.Text, cmbmodalite.SelectedValue);
                 letudiansuc.Text = "Inscription effectué avec success, Le matricule de l'etudiant est: "+codeetudiant+ " et son mot de passe est: "+passetu;
                 letudiansuc.Visible = true;
@@ -196,14 +205,17 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
         protected void btnrecherchen_Click(object sender, EventArgs e)
         {
             RechercherEtudiant();
+            ListeDropdown();
         }
 
         protected void btnsavecours_Click(object sender, EventArgs e)
         {
+           
             controcours.Creercours(ttitrecours.Text, coef.Text, cmdfaculter.SelectedValue, tprof.Text, cmdsession.Text,cmbniveaucours.Text);
             ttitrecours.Text = "";
             coef.Text = "";
             tprof.Text = "";
+            ListeDropdown();
         }
 
         protected void btnsavefaculte_Click(object sender, EventArgs e)
@@ -211,22 +223,24 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
             controfacul.Creerfaculte(tnomfaculte.Text, tnbannee.Text);
             tnomfaculte.Text = "";
             tnbannee.Text = "";
+            ListeDropdown();
 
         }
 
         protected void btnsaveanneaca_Click(object sender, EventArgs e)
         {
             conetu.CreerAnneeAca(tanneedeb.Text, tanneefin.Text, (tanneedeb.Text +"-"+ tanneefin.Text));
+            tanneedeb.Text = "";
+            tanneefin.Text = "";
+            ListeDropdown();
         }
 
-        protected void btnloadreport_Click(object sender, EventArgs e)
-        {
-           
-        }
+       
 
         protected void btnrecherupdate_Click(object sender, EventArgs e)
         {
             RechercherModifierEtudiant();
+            ListeDropdown();
         }
 
         protected void btnupdate_Click(object sender, EventArgs e)
@@ -235,7 +249,7 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
             btnupdate.Visible = false;
             btnsave.Visible = true;
             videretudiant();
-            
+            ListeDropdown();
 
         }
 
@@ -253,7 +267,13 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
 
         protected void btnsavenote_Click(object sender, EventArgs e)
         {
-            contronote.Creernote(cmbcours.SelectedValue, trecheretunote.Text,cmbsession.Text,ddannee.SelectedValue,profil.Text,cmbniveaunote.Text,tnote.Text);
+            contronote.Creernote(cmbcours.SelectedValue, trecheretunote.Text,cmbsession.Text,ddannee.Text,profil.Text,cmbniveaunote.Text,tnote.Text);
+            ListeDropdown();
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

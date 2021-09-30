@@ -267,13 +267,13 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
         protected global::System.Web.UI.WebControls.Button btnsave;
 
         /// <summary>
-        /// Button1 control.
+        /// paneluser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.UpdatePanel paneluser;
 
         /// <summary>
         /// tnomuser control.
@@ -319,6 +319,15 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnenregistrer;
+
+        /// <summary>
+        /// panelnote control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel panelnote;
 
         /// <summary>
         /// trecheretunote control.
@@ -382,6 +391,15 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddannee;
+
+        /// <summary>
+        /// panelcours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel panelcours;
 
         /// <summary>
         /// cmbcours control.
@@ -465,6 +483,15 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
 
         /// <summary>
+        /// Button3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button3;
+
+        /// <summary>
         /// ttitrecours control.
         /// </summary>
         /// <remarks>
@@ -499,6 +526,15 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cmdfaculter;
+
+        /// <summary>
+        /// tdidc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tdidc;
 
         /// <summary>
         /// cmdsession control.
@@ -580,6 +616,15 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Montant;
+
+        /// <summary>
+        /// idpanelfaculte control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel idpanelfaculte;
 
         /// <summary>
         /// tnomfaculte control.

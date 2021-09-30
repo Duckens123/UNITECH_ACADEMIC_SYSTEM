@@ -172,6 +172,12 @@
       <DependentUpon>crlistetudiants.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="VUE\crNotes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crNotes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="VUE\DashboardEtudiant.aspx.cs">
       <DependentUpon>DashboardEtudiant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,6 +229,10 @@
     <EmbeddedResource Include="VUE\crlistetudiants.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crlistetudiants.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VUE\crNotes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crNotes.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

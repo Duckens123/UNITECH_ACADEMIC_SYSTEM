@@ -11,6 +11,7 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
     public partial class Loginadmin : System.Web.UI.Page
     {
         ControlleureUser conuser = new ControlleureUser();
+        Admin adm = new Admin();
         
         void Connecter()
         {
@@ -24,6 +25,7 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
             {
                 Session["pseudo"] = tpinuser.Text;
                 Response.Redirect("Admin.aspx");
+                adm.ListeDropdown();
             }
         }
         protected void Page_Load(object sender, EventArgs e)

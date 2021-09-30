@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using UNITECH_ACADEMEIC_SYSTEME.MODELE;
@@ -19,6 +20,10 @@ namespace UNITECH_ACADEMEIC_SYSTEME.CONTROLLEURE
             this.noteetu = new Note(idcours, matricule, session, anneeaccademique, createdby, niveau,note);
             noteetu.CreernoteEtudiant();
 
+        }
+        public DataSet GetBulletin(string matricule, string anneeaca,string niveau)
+        {
+            return noteetu.Bulletin(matricule, anneeaca, niveau);
         }
 
     }

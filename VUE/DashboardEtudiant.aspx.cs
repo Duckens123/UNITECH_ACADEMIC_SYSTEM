@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +13,15 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        protected void btnbulletin_Click(object sender, EventArgs e)
+        {
+            ReportDocument crp = new ReportDocument();
+            crp.Load(Server.MapPath("crNotes.rpt"));
+            rpbulletin.ReportSource = crp;
+            crp.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, false, "Bulletin");
 
         }
     }

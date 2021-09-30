@@ -412,7 +412,7 @@
                <div class="col-md-3">                 
                   <label>Niveau</label>
                   <asp:DropDownList ID="cmbniveau" runat="server" class="form-select">
-                    <asp:ListItem>Selectionner niveau...</asp:ListItem>
+                    <asp:ListItem Value="">Selectionner niveau...</asp:ListItem>
                     <asp:ListItem>1</asp:ListItem>
                     <asp:ListItem>2</asp:ListItem>
                       <asp:ListItem>3</asp:ListItem>
@@ -444,14 +444,14 @@
     <!-- Fin Page ajouter eleve -->
      <!-- Page lister eleve -->
     <main class="mt-5 pt-3 shadow-lg p-3 mb-5 bg-body rounded page" id="listereleve">
-        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click1" />
-        
+              
        
     </main>
     <!-- Fin Page lister eleve -->
     
         <!-- Page ajouter user -->
     <main class="mt-5 pt-3 shadow-lg p-3 mb-5 bg-body rounded page" id="ajouteruser">
+        <asp:UpdatePanel ID="paneluser" runat="server"><ContentTemplate>
       <div class="container-fluid">
         <div class="row d-flex justify-content-between">
           <div class="col-md-3">
@@ -487,11 +487,13 @@
               </div>
           </div>
       </div>
+            </ContentTemplate></asp:UpdatePanel>
     </main>
     <!-- Fin Page ajouter -->
 
          <!-- Page add note -->
     <main class="mt-5 pt-3 shadow-lg p-3 mb-5 bg-body rounded page" id="addnote">
+        <asp:UpdatePanel ID="panelnote" runat="server"><ContentTemplate>
      
       <div class="container-fluid">
         <div class="row d-flex justify-content-center">
@@ -541,11 +543,13 @@
                 </asp:DropDownList>
               </div>
 
-          <div class="col-md-3">                 
+          <div class="col-md-3">   
+              <asp:UpdatePanel runat="server" ID="panelcours"><ContentTemplate>
                   <label>Cours</label>
                   <asp:DropDownList ID="cmbcours" runat="server" class="form-select">
                     
                 </asp:DropDownList>
+                  </ContentTemplate></asp:UpdatePanel>
           </div>
           <div class="col-md-3">
               <label>Note</label>
@@ -563,7 +567,7 @@
 
           </div>        
                
-     
+     </ContentTemplate></asp:UpdatePanel>
     </main>
 
     <!-- Fin Page add note -->
@@ -638,6 +642,7 @@
                     <ContentTemplate>
       <div class="container-fluid">
         <div class="row d-flex justify-content-center">
+            <asp:Button ID="Button3" runat="server" Text="Show fac" OnClick="Button3_Click" />
             <div class="col-md-3">
                 <label>Titre cours</label>
                 <asp:TextBox ID="ttitrecours" CssClass="form-control" runat="server"></asp:TextBox>
@@ -654,6 +659,8 @@
                 <label>Discipline</label>
                 <asp:DropDownList CssClass="form-select" ID="cmdfaculter" runat="server">
                 </asp:DropDownList>
+                <asp:Label ID="tdidc" runat="server" Text=""></asp:Label>
+                
 
             </div>
             <div class="row d-flex justify-content-center">
@@ -725,8 +732,10 @@
 
              <!-- Page Faculter -->
     <main class="mt-5 pt-3 shadow-lg p-3 mb-5 bg-body rounded page" id="faculte">
+
+        <asp:UpdatePanel ID="idpanelfaculte" runat="server"><ContentTemplate>
       <div class="container-fluid">
-        <div class="row  d-flex justify-content-between">
+        <div class="row  d-flex justify-content-evently">
             <div class="col-md-3">
                 <label>Nom Faculté</label>
                 <asp:TextBox ID="tnomfaculte" CssClass="form-control" runat="server"></asp:TextBox>
@@ -744,11 +753,10 @@
             </div>
             <div class="col-md-3">
                 <asp:Button ID="btnsavefaculte" class="btn btn-primary" runat="server" Text="Sauvegarder" OnClick="btnsavefaculte_Click" />
-            </div>
-        
-         
+            </div>       
         </div> 
       </div>
+            </ContentTemplate></asp:UpdatePanel>
     </main>
              <!-- fin Page Faculter -->
                  
