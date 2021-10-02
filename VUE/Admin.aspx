@@ -201,11 +201,19 @@
                     </a>
                   </li>
                    <li>
-                    <a href="#" class="nav-link px-3 menu" data-page="editnote">
+                    <a href="#" class="nav-link px-3 menu" data-page="noteannese">
                       <span class="me-2"
                         ><i class="bi bi-list-ol"></i
                       ></span>
-                      <span>Modifier</span>
+                      <span>Note par année accademique et session</span>
+                    </a>
+                  </li>
+                     <li>
+                    <a href="#" class="nav-link px-3 menu" data-page="noteoption">
+                      <span class="me-2"
+                        ><i class="bi bi-list-ol"></i
+                      ></span>
+                      <span>Note par option</span>
                     </a>
                   </li>
                   <li>
@@ -273,23 +281,8 @@
     <!-- Les Pages -->
      <!-- Page acceuil -->
     <main class="mt-5 pt-3 shadow-lg p-3 mb-5 bg-body rounded page" id="acceuil">
-      <div class="container-fluid">
-        <div class="row d-flex justify-content-evenly">
-         <div class="row d-flex justify-content-between">
-          <div class="col-md-3">
-            
-          </div>
-          <div class="col-md-3">
-            
-          </div>
-          <div class="col-md-3">
-            <p>Home</p>
-          </div>
            
-         </div>
-         
-        </div>       
-      </div>
+     
     </main>
     <!-- Fin Page acceuil -->
     <!-- Page ajouter eleve -->
@@ -444,8 +437,38 @@
     <!-- Fin Page ajouter eleve -->
      <!-- Page lister eleve -->
     <main class="mt-5 pt-3 shadow-lg p-3 mb-5 bg-body rounded page" id="listereleve">
-              
+        <asp:UpdatePanel ID="panelliste" runat="server">
+            <ContentTemplate>
+                  <div class="container-fluid">
+        <div class="row d-flex justify-content-between mb-2">
+            <div class="col-md-3">
+        <asp:DropDownList ID="ddoption" CssClass="form-select" runat="server">
+           
+        </asp:DropDownList>
+                </div>
+             <div class="col-md-3">
+         <asp:DropDownList ID="ddanneeaca" CssClass="form-select" runat="server"></asp:DropDownList>
+                 </div>
+            <div class="col-md-3">
+        <asp:Button ID="btnfilter" CssClass="btn btn-outline-info" runat="server" Text="Filtrer" OnClick="btnfilter_Click" />
+       </div>
+            <div class="col-md-3">
+            <asp:Button ID="btnexcel" CssClass="btn btn-outline-info" runat="server" Text="Export excel" OnClick="btnexcel_Click" />
+                </div>
+        <asp:PlaceHolder ID="PlaceHolder1" runat="server">
+            
+        </asp:PlaceHolder>
+            <asp:PlaceHolder ID="PlaceHolder2" runat="server">
+            
+        </asp:PlaceHolder>
+        <asp:GridView ID="gridEtudiant" Visible="false" runat="server"></asp:GridView>
+        </div>
+            </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        
        
+      
     </main>
     <!-- Fin Page lister eleve -->
     
@@ -583,6 +606,38 @@
     </main>
     <!-- Fin Page edit note -->
 
+                     <!-- Page edit note -->
+    <main class="mt-5 pt-3 shadow-lg p-3 mb-5 bg-body rounded page" id="noteannese">
+      <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                  <div class="container-fluid">
+        <div class="row d-flex justify-content-between mb-2">
+            <div class="col-md-3">
+        <asp:DropDownList ID="ddanneese" CssClass="form-select" runat="server">
+           
+        </asp:DropDownList>
+                </div>
+             <div class="col-md-3">
+         <asp:DropDownList ID="ddsesseionan" CssClass="form-select" runat="server">
+             <asp:ListItem>I</asp:ListItem>
+             <asp:ListItem>II</asp:ListItem>
+         </asp:DropDownList>
+                 </div>
+            <div class="col-md-3">
+        <asp:Button ID="btnanneesession" CssClass="btn btn-outline-info" runat="server" Text="Filtrer" OnClick=" btnanneesession_Click" />
+       </div>
+            
+            <asp:PlaceHolder ID="phanneesession" runat="server">
+            
+        </asp:PlaceHolder>
+        <asp:GridView ID="GridView1" Visible="false" runat="server"></asp:GridView>
+        </div>
+            </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </main>
+    <!-- Fin Page edit note -->
+
         <!-- Page liste user -->
     <main class="mt-5 pt-3 shadow-lg p-3 mb-5 bg-body rounded page" id="listeruser">
       <div class="container-fluid">
@@ -700,6 +755,30 @@
                         </ContentTemplate>
                 </asp:UpdatePanel>
     </main>
+
+
+                    <!-- Page liste user -->
+    <main class="mt-5 pt-3 shadow-lg p-3 mb-5 bg-body rounded page" id="noteoption">
+        <asp:UpdatePanel runat="server" ID="panelnotoption"><ContentTemplate>
+      <div class="container-fluid">
+          <div class="row d-flex justify-content-center" ">
+
+           <div class="col-md-3">
+               <asp:DropDownList ID="ddoptionnote" CssClass="form-select" runat="server"></asp:DropDownList>
+           </div>
+               <div class="col-md-3">
+                   <asp:Button ID="btnoption" CssClass="btn btn-primary" OnClick="btnnoteoptio_Click" runat="server" Text="Voir"  />
+           </div>
+              <asp:PlaceHolder ID="phnoteoption" runat="server"></asp:PlaceHolder>
+            
+        </div> 
+        <div class="row d-flex justify-content-center" ">
+                  
+        </div>       
+      </div>
+            </ContentTemplate></asp:UpdatePanel>
+    </main>
+    <!-- Fin Page liste user -->
     <!-- Fin Page cours -->
              <main class="mt-5 pt-3 shadow-lg p-3 mb-5 bg-body rounded page" id="pay">
                 <asp:UpdatePanel runat="server" ID="panelfaculte">

@@ -90,17 +90,9 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_myparam {
+        public CrystalDecisions.Shared.IParameterField Parameter_param {
             get {
                 return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_para {
-            get {
-                return this.DataDefinition.ParameterFields[1];
             }
         }
     }

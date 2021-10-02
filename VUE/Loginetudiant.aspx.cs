@@ -27,7 +27,7 @@ namespace UNITECH_ACADEMEIC_SYSTEME.VUE
             else
             {
                 Session["pseudo"] = tpinstudent.Text;
-                Response.Redirect("Admin.aspx");
+                Response.Redirect("DashboardEtudiant.aspx");
             }
         }
 

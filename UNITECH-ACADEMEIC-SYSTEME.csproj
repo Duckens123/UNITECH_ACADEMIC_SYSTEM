@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\..\Documents\dll\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Bold.Licensing, Version=3.2460.23.0, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
       <HintPath>packages\Bold.Licensing.3.2.23\lib\net46\Bold.Licensing.dll</HintPath>
     </Reference>
@@ -56,6 +59,15 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EPPlus">
+      <HintPath>..\..\..\Documents\dll\Bin\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="HashLIbrary">
+      <HintPath>..\..\..\Documents\dll\Bin\HashLIbrary.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\Documents\dll\Bin\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
@@ -157,6 +169,12 @@
     <Compile Include="MODELE\Note.cs" />
     <Compile Include="MODELE\Paiement.cs" />
     <Compile Include="MODELE\User.cs" />
+    <Compile Include="NoteparOption.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NoteparOption.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="VUE\Admin.aspx.cs">
@@ -226,6 +244,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="NoteparOption.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NoteparOption.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="VUE\crlistetudiants.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crlistetudiants.cs</LastGenOutput>

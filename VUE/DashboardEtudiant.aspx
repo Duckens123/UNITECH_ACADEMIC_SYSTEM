@@ -48,7 +48,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="topNavBar">
+        <div class="collapse navbar-collapse justify-content-end" id="topNavBar">
          
             
           <ul class="navbar-nav">
@@ -62,9 +62,9 @@
               >
                 <i class="bi bi-person-fill"></i>
               </a>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Profil</a></li>
-                <li><a class="dropdown-item" href="#">Deconnection</a></li>
+              <ul class="dropdown-menu dropdown-menu-end">                 
+                <li><asp:Label ID="profil" class="dropdown-item" runat="server" Text="Profil"></asp:Label></li>                 
+                <li class="btn btn-danger"> <asp:Button ID="btnlogout" class="dropdown-item" runat="server" Text="Deconnection" /></li>
               </ul>
             </li>
           </ul>
@@ -144,10 +144,15 @@
       <div class="container-fluid">
         <div class="row d-flex justify-content-evenly">
          <div class="row d-flex justify-content-between">
-             
-            
+             <asp:DropDownList ID="ddsession" AutoPostBack="true" runat="server" >
+                 <asp:ListItem>I</asp:ListItem>
+                 <asp:ListItem>II</asp:ListItem>
+             </asp:DropDownList>
+             <asp:Button ID="Button1" runat="server" Text="Rechercher" OnClick="Button1_Click" />
+             <asp:PlaceHolder ID="tablebulletin" runat="server"></asp:PlaceHolder>
+             <CR:CrystalReportViewer ID="crpnoteetu" runat="server" AutoDataBind="true" />
                       
-             <CR:CrystalReportViewer ID="rpbulletin" runat="server" AutoDataBind="true" OnDataBinding="Page_Load" OnInit="Page_Load" />
+             <CR:CrystalReportViewer ID="rpbulletin" runat="server" Visible="true" AutoDataBind="true" OnDataBinding="Page_Load" OnInit="Page_Load" />
            
          </div>
          

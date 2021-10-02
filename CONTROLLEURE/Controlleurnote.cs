@@ -21,10 +21,25 @@ namespace UNITECH_ACADEMEIC_SYSTEME.CONTROLLEURE
             noteetu.CreernoteEtudiant();
 
         }
+
+        public DataTable Getmynotestu(string matricule,string session)
+        {
+            return noteetu.GetBulletinbystu(matricule,session);
+        }
         public DataSet GetBulletin(string matricule, string anneeaca,string niveau)
         {
             return noteetu.Bulletin(matricule, anneeaca, niveau);
         }
+        public DataTable Getmynote(string option)
+        {
+            return noteetu.GetBulletin(option);
+        }
+
+        public DataTable Getmynote(string anneeaca, string session)
+        {
+            return noteetu.GetBulletin(anneeaca, session);
+        }
+        
 
     }
 }

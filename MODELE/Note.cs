@@ -64,5 +64,51 @@ namespace UNITECH_ACADEMEIC_SYSTEME.MODELE
             con.Close();
 
         }
+        public DataTable GetBulletin(string option)
+        {
+
+            SqlConnection con = new SqlConnection(strcon);            
+            string query = string.Format("SELECT * FROM vnoteetu where nomfaculte='{0}' order by matricule", option);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query,con);
+            SqlDataAdapter sda = new SqlDataAdapter();
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();                      
+            sda.Fill(dt);
+            return dt;
+
+           
+            }
+        public DataTable GetBulletinbystu(string matricule, string session)
+        {
+
+            SqlConnection con = new SqlConnection(strcon);
+            string query = string.Format("SELECT * FROM vnoteetu where matricule='{0}' AND session='{1}'", matricule, session);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataAdapter sda = new SqlDataAdapter();
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            return dt;
+
+
+        }
+        public DataTable GetBulletin(string anneeaca,string session)
+        {
+
+            SqlConnection con = new SqlConnection(strcon);
+            string query = string.Format("SELECT * FROM vnoteetu where anneaccademique='{0}' AND session='{1}'", anneeaca,session);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataAdapter sda = new SqlDataAdapter();
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            return dt;
+
+
+        }
+
     }
-}
+    }

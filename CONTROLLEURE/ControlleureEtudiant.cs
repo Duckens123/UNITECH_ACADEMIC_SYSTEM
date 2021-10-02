@@ -185,6 +185,15 @@ namespace UNITECH_ACADEMEIC_SYSTEME.CONTROLLEURE
 
         }
 
+        public DataTable GetlisteStudent()
+        {
+            return etu.GetListeStudent();
+        }
+        public DataTable GetlisteStudentBy(string anneeaca, string option)
+        {
+            return etu.GetListeStudentBy(anneeaca, option);
+        }
+
         public DataSet GetListeEtudiant()
         {
             return (etu.ListerEtudiants());

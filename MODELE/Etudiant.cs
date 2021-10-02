@@ -359,6 +359,49 @@ namespace UNITECH_ACADEMEIC_SYSTEME.MODELE
 
         }
 
+        public DataTable GetListeStudent()
+        {
+            
+            using (SqlConnection con = new SqlConnection(strcon))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM vetudiant"))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            return dt;
+                        }
+                    }
+                }
+            }
+        }
+
+        public DataTable GetListeStudentBy(string anneeaca,string option)
+        {
+
+            using (SqlConnection con = new SqlConnection(strcon))
+            {
+                string query = string.Format("select * from vetudiant where  anneaccademique='{0}' AND nomfaculte='{1}'", anneeaca, option);
+                using (SqlCommand cmd = new SqlCommand(query,con))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            return dt;
+                        }
+                    }
+                }
+            }
+        }
+
     }
     
 }
